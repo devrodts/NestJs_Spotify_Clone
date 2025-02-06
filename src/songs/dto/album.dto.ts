@@ -9,5 +9,22 @@ export class AlbumDto{
     @IsNotEmpty()
     readonly year: number;
 
+    @IsString()
+    @IsNotEmpty()
+    readonly genre: string;
+
+    @IsString()
+    @IsNotEmpty()
+    readonly label: string;
+
+    @IsString()
+    @IsNotEmpty()
+    readonly producer: string;
+
+    @IsString()
+    readonly format: string;
+
+    @IsString()
+    readonly barcode: string;
 
 }
