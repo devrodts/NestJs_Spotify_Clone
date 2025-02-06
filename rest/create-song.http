@@ -3,8 +3,31 @@ POST http://localhost:3000/songs
 Content-Type: application/json
 
 {
-    "title": "Song 1",
-    "artist": "Artist 1",
-    "album": "Album 1",
-    "year": 2021
+    "title": "Song 3",
+    "artist": ["Artist One", "Artist Two"],
+
+    "album": [
+        {
+            "name": "Love you too much",
+            "year": 2025,
+            "genre": "Pop",
+            "label": "Record Label",
+            "producer": "Producer Name",
+            "format": "CD",
+            "barcode": "1234567890"
+        },
+
+        {
+            "name": "Always be here",
+            "year": 2025,
+            "genre": "Pop",
+            "label": "Record Label",
+            "producer": "Producer Name",
+            "format": "CD",
+            "barcode": "1234567890"
+        }
+    ],
+    "releaseDate": "2023-01-01",
+    "duration": "03:00" 
+
 }
