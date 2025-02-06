@@ -1,4 +1,6 @@
-import { IsString, IsNotEmpty, IsArray, IsDateString, IsObject, IsMilitaryTime } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsString, IsNotEmpty, IsArray, IsDateString, IsObject, IsMilitaryTime, ValidateNested } from 'class-validator';
+import { AlbumDto } from './album.dto';
 
 export class CreateSongDto{
 
@@ -7,14 +9,12 @@ export class CreateSongDto{
     readonly title: string;
 
     @IsNotEmpty()
-    @IsArray()
-    @IsString()
+    @IsString({each: true})
     readonly artist: string[];
 
-    @IsNotEmpty()
-    @IsObject()
-    @IsString()
-    readonly album: object[] | string;
+    @ValidateNested({each: true})
+    @Type(() => AlbumDto)
+    readonly album: AlbumDto[];
 
     @IsNotEmpty()
     @IsDateString()
@@ -23,5 +23,5 @@ export class CreateSongDto{
     @IsMilitaryTime()
     @IsNotEmpty()
     readonly duration: string;
-    
+
 }
